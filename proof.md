@@ -55,80 +55,80 @@ $$
 We execute these computations using their approximations in floating-point arithmetic:
 
 $$
-\^l = fl(fl(x \cdot x) + fl(y \cdot y))
+\hat{l} = fl(fl(x \cdot x) + fl(y \cdot y))
 $$
 
 $$
-s = fl(m \cdot isq(\^l))
+s = fl(m \cdot isq(\hat{l}))
 $$
 
 $$
-x_1 = fl(\^s \cdot x) \\
-y_1 = fl(\^s \cdot y)
+x_1 = fl(\hat{s} \cdot x) \\
+y_1 = fl(\hat{s} \cdot y)
 $$
 
 $$
-\^l_1 = fl(fl(\^x_1 \cdot \^x_1) + fl(\^y_1 \cdot \^y_1))
+\hat{l_1} = fl(fl(\hat{x_1} \cdot \hat{x_1}) + fl(\hat{y_1} \cdot \hat{y_1}))
 $$
 
 $$
-\^s_1 = fl(m \cdot isq(\^l_1))
+\hat{s_1} = fl(m \cdot isq(\hat{l_1}))
 $$
 
-Find the maximum relative error in computation of $\^s_1$.
+Find the maximum relative error in computation of $\hat{s_1}$.
 
 To state the problem more formally, find such $\epsilon_{s_1} \in \mathbb{R}$,
 $\epsilon_{s_1} > 0$, that
 
 $$
 \forall x, y \mathbb{F}, m \in \{ n \in  \mathbb{F} \mid n > 0 \} : \\
-|\dfrac{\^s_1 - s_1}{s_1}| \leq \epsilon_{s_1}
+|\dfrac{\hat{s_1} - s_1}{s_1}| \leq \epsilon_{s_1}
 $$
 
 # Lemmas
 
 ## Lemma 1
 
-If $a$ is a real number other than $0$, $\^a$ is its approximation, and $\epsilon$ 
+If $a$ is a real number other than $0$, $\hat{a}$ is its approximation, and $\epsilon$ 
 is the maximum relative error between them, we write
 
 $$
-|\dfrac{\^a - a}{a}| \leq \epsilon 
+|\dfrac{\hat{a} - a}{a}| \leq \epsilon 
 $$
 
 Then, we can also state that
 
 $$
-\^a = a(1 + \delta) \text{ for some } \delta \in \mathbb{R} \text{ such that }
+\hat{a} = a(1 + \delta) \text{ for some } \delta \in \mathbb{R} \text{ such that }
 |\delta| \leq \epsilon
 $$
 
 Or, more formally
 
 $$
-\exists \delta \in \mathbb{R} : |\delta| \leq \epsilon \land \^a = a(1 + \delta)
+\exists \delta \in \mathbb{R} : |\delta| \leq \epsilon \land \hat{a} = a(1 + \delta)
 $$
 
 ### Proof
 
-We can first show that there exists such $\delta$ that $\^a = a(1 + \delta)$, and then prove that $|\delta| \leq \epsilon$
+We can first show that there exists such $\delta$ that $\hat{a} = a(1 + \delta)$, and then prove that $|\delta| \leq \epsilon$
 
-If $\^a = a(1 + \delta)$ then $\delta = \dfrac{\^a}{a} - 1$. $\delta$ exists if $a \neq 0$, which is true by defnition.
+If $\hat{a} = a(1 + \delta)$ then $\delta = \dfrac{\hat{a}}{a} - 1$. $\delta$ exists if $a \neq 0$, which is true by defnition.
 
 $$
-|\dfrac{\^a - a}{a}| = |\dfrac{|\^a - a|}{|a|} \leq \epsilon \\
-|\^a - a| \leq \epsilon|a|
+|\dfrac{\hat{a} - a}{a}| = |\dfrac{|\hat{a} - a|}{|a|} \leq \epsilon \\
+|\hat{a} - a| \leq \epsilon|a|
 $$
 
 By triangle inequality ($|a - b| \geq |a| - |b|$), 
 
 $$
-|\^a| - |a| \leq |\^a - a| \text{, so} \\
-|\^a| - |a| \leq \epsilon|a| \\
-|\^a| \leq \epsilon|a| + |a|
+|\hat{a}| - |a| \leq |\hat{a} - a| \text{, so} \\
+|\hat{a}| - |a| \leq \epsilon|a| \\
+|\hat{a}| \leq \epsilon|a| + |a|
 $$
 
-Substituting $a(1 + \delta)$ instead of $\^a$, we get
+Substituting $a(1 + \delta)$ instead of $\hat{a}$, we get
 
 $$
 |a(1 + \delta)| = |a| + |\delta||a| \leq |a| + \epsilon|a|
@@ -262,10 +262,10 @@ $\square$
 
 ## Lemma 3
 
-If $a$ is a real number and $\^a$ is its approximation with maximum relative error $\epsilon_a$, then
+If $a$ is a real number and $\hat{a}$ is its approximation with maximum relative error $\epsilon_a$, then
 
 $$
-isq(\^a) = \dfrac{1}{\sqrt{a}}(1 + \delta_{isqa}) \text{ for some } 
+isq(\hat{a}) = \dfrac{1}{\sqrt{a}}(1 + \delta_{isqa}) \text{ for some } 
 \delta_{isqa} \in \mathbb{R} \text{ such that } 
 |\delta_{isqa}| \leq \epsilon_{isqa}
 $$
@@ -284,12 +284,12 @@ $$
 By lemma 1, we can state that
 
 $$
-\^a = a(1 + \delta_a) \text{ for some } \delta_a \in \mathbb{R}
+\hat{a} = a(1 + \delta_a) \text{ for some } \delta_a \in \mathbb{R}
 \text{ such that } |\delta_a| \leq \epsilon_a
 $$
 
 $$
-isq(\^a) = \dfrac{1}{\sqrt{\^a}}(1 + \delta_{isq}) = 
+isq(\hat{a}) = \dfrac{1}{\sqrt{\hat{a}}}(1 + \delta_{isq}) = 
 \dfrac{1}{\sqrt{a}\sqrt{1 + \delta_a}}(1 + \delta_{isq}) =
 $$
 
@@ -306,7 +306,7 @@ $$
 So we can write
 
 $$
-isq(\^a) = \dfrac{1}{\sqrt{a}}(1 + \delta_{isqa})
+isq(\hat{a}) = \dfrac{1}{\sqrt{a}}(1 + \delta_{isqa})
 $$
 
 Where 
@@ -365,16 +365,16 @@ By definition of $\epsilon_{isqa}$, $|\delta_{isqa}| \leq \epsilon_{isqa}$
 $\square$
 
 # Solution
-## $\^l$
+## $\hat{l}$
 
 $$
-\^l = fl(fl(x \cdot x) + fl(y \cdot y))
+\hat{l} = fl(fl(x \cdot x) + fl(y \cdot y))
 $$
 
 By lemma 1,
 
 $$
-\^l = [(x \cdot x)(1 + \delta_1) + (y \cdot y)(1 + \delta_2)](1 + \delta_3) = \\
+\hat{l} = [(x \cdot x)(1 + \delta_1) + (y \cdot y)(1 + \delta_2)](1 + \delta_3) = \\
 (x \cdot x)(1 + \delta_1)(1 + \delta_3) + (y \cdot y)(1 + \delta_2)(1 + \delta_3) = \\
 (x \cdot x)(1 + \delta_1 + \delta_3 + \delta_1\delta_3) + (y \cdot y)(1 + \delta_2 + \delta_3 + \delta_2\delta_3)
 $$
@@ -382,11 +382,11 @@ $$
 The relative error is
 
 $$
-|\dfrac{\^l - l}{l}| = \dfrac{|\^l - l|}{|l|}
+|\dfrac{\hat{l} - l}{l}| = \dfrac{|\hat{l} - l|}{|l|}
 $$
 
 $$
-|\^l - l| = |(x \cdot x)(\delta_1 + \delta_3 + \delta_1\delta_3) + (y \cdot y)(\delta_2 + \delta_3 + \delta_2\delta_3)|
+|\hat{l} - l| = |(x \cdot x)(\delta_1 + \delta_3 + \delta_1\delta_3) + (y \cdot y)(\delta_2 + \delta_3 + \delta_2\delta_3)|
 $$
 
 By triangle inequality ($|a + b| \leq |a| + |b|$) and multiplicativity of absolute value ($|ab| = |a||b|$),
@@ -424,34 +424,34 @@ $$
 $$
 
 $$
-|\^l - l| \leq [(x \cdot x) + (y \cdot y)](\epsilon_m + \epsilon_m + \epsilon_m^2)
+|\hat{l} - l| \leq [(x \cdot x) + (y \cdot y)](\epsilon_m + \epsilon_m + \epsilon_m^2)
 $$
 
 $$
-\dfrac{|\^l - l|}{|l|} \leq \dfrac{[(x \cdot x) + (y \cdot y)](\epsilon_m + \epsilon_m + \epsilon_m^2)}{(x \cdot x) + (y \cdot y)} = \epsilon_m + \epsilon_m + \epsilon_m^2
+\dfrac{|\hat{l} - l|}{|l|} \leq \dfrac{[(x \cdot x) + (y \cdot y)](\epsilon_m + \epsilon_m + \epsilon_m^2)}{(x \cdot x) + (y \cdot y)} = \epsilon_m + \epsilon_m + \epsilon_m^2
 $$
 
 So, by lemma 1, we can state that
 
 $$
-\^l = l(1 + \delta_l) \text { for some } \delta_l \in \mathbb{R}
+\hat{l} = l(1 + \delta_l) \text { for some } \delta_l \in \mathbb{R}
 \text{ such that } |\delta_l| \leq \epsilon_l
 $$
 
 Where $\epsilon_l = 2\epsilon_m + \epsilon_m^2$
 
-## $\^s$
+## $\hat{s}$
 
 By lemma 1:
 
 $$
-\^s = fl(m \cdot isq(\^l)) = (m \cdot isq(\^l))(1 + \delta_4)
+\hat{s} = fl(m \cdot isq(\hat{l})) = (m \cdot isq(\hat{l}))(1 + \delta_4)
 $$
 
 By lemma 3, we can write:
 
 $$
-isq(\^l) = \dfrac{1}{\sqrt{l}}(1 + \delta_{isql}) \text{ for some }
+isq(\hat{l}) = \dfrac{1}{\sqrt{l}}(1 + \delta_{isql}) \text{ for some }
 \delta_{isql} \in \mathbb{R} \text{ such that } 
 |\delta_{isql}| \leq \epsilon_{isql}
 $$
@@ -468,7 +468,7 @@ $$
 So
 
 $$
-\^s = \dfrac{m}{\sqrt{l}}(1 + \delta_4)(1 + \delta_{isql}) = 
+\hat{s} = \dfrac{m}{\sqrt{l}}(1 + \delta_4)(1 + \delta_{isql}) = 
 \dfrac{m}{\sqrt{l}}(1 + \delta_4 + \delta_{isql} + \delta_4\delta_{isql})
 $$
 
@@ -477,7 +477,7 @@ Let $\delta_s = \delta_4 + \delta_{isql} + \delta_4\delta_{isql}$
 Since $\dfrac{m}{\sqrt{l}} = s$, we can write
 
 $$
-\^s = s(1 + \delta_s)
+\hat{s} = s(1 + \delta_s)
 $$
 
 By triangle inequality,
@@ -489,10 +489,10 @@ $$
 
 So we can define $\epsilon_s = \epsilon_m + \epsilon_{isql} + \epsilon_m\epsilon_{isql}$ and write $|\delta_s| \leq \epsilon_s$
 
-## $\^x_1, \^y_1$
+## $\hat{x_1}, \hat{y_1}$
 
 $$
-\^x_1 = (x \cdot \^s)(1 + \delta_5) = (x \cdot s)(1 + \delta_5)(1 + \delta_s) = x_1(1 + \delta_5 + \delta_s + \delta_5\delta_s)
+\hat{x_1} = (x \cdot \hat{s})(1 + \delta_5) = (x \cdot s)(1 + \delta_5)(1 + \delta_s) = x_1(1 + \delta_5 + \delta_s + \delta_5\delta_s)
 $$
 
 By triangle inequality,
@@ -506,27 +506,27 @@ We define $\delta_{x_1} = \delta_5 + \delta_s + \delta_5\delta_s$,
 $\epsilon_{x_1} = \epsilon_m + \epsilon_s + \epsilon_m\epsilon_s$ and
 write $|\delta_{x_1}| \leq \epsilon_{x_1}$
 
-Similarly for $\^y_1$ we write
+Similarly for $\hat{y_1}$ we write
 
 $$
-\^y_1 = y(1 + \delta_{y_1}) \\
+\hat{y_1} = y(1 + \delta_{y_1}) \\
 \delta_{y_1} = \delta_6 + \delta_s + \delta_6\delta_s \\
 \epsilon_{y_1} = \epsilon_m + \epsilon_s + \epsilon_m\epsilon_s \\
 |\delta_{y_1}| \leq \epsilon_{y_1}
 $$
 
-## $\^l_1$
+## $\hat{l}_1$
 
 $$
-\^l_1 = fl(fl(\^x_1 \cdot \^x_1) + fl(\^y_1 \cdot \^y_1)) = 
-$$
-
-$$
-[(\^x_1 \cdot \^x_1)(1 + \delta_7) + (\^y_1 \cdot \^y_1)(1 + \delta_8)](1 + \delta_9).
+\hat{l}_1 = fl(fl(\hat{x_1} \cdot \hat{x_1}) + fl(\hat{y_1} \cdot \hat{y_1})) = 
 $$
 
 $$
-(\^x_1 \cdot \^x_1)(1 + \delta_7)(1 + \delta_9) = 
+[(\hat{x_1} \cdot \hat{x_1})(1 + \delta_7) + (\hat{y_1} \cdot \hat{y_1})(1 + \delta_8)](1 + \delta_9).
+$$
+
+$$
+(\hat{x_1} \cdot \hat{x_1})(1 + \delta_7)(1 + \delta_9) = 
 (x_1 \cdot x_1)(1 + \delta_{x_1}^2)(1 + \delta_7)(1 + \delta_9) =
 $$
 
@@ -548,14 +548,14 @@ $$
 y_1^2(1 + \delta_{y_1}+ \delta_{y_1}^2 + \delta_8 + \delta_8\delta_{y_1} + \delta_8\delta_{y_1}^2 + \delta_9 + \delta_9\delta_{y_1} + \delta_9\delta_{y_1}^2 + \delta_9\delta_8 + \delta_9\delta_8\delta_{y_1} + \delta_9\delta_8\delta_{y_1}^2)
 $$
 
-Similarly to $\^l$, the relative error is 
+Similarly to $\hat{l}$, the relative error is 
 
 $$
-\dfrac{|\^l_1 - l_1|}{|l_1|}
+\dfrac{|\hat{l}_1 - l_1|}{|l_1|}
 $$
 
 $$
-|\^l_1 - l| = \\
+|\hat{l}_1 - l| = \\
 x_1^2(\delta_{x_1}+ \delta_{x_1}^2 + \delta_7 + \delta_7\delta_{x_1} + \delta_7\delta_{x_1}^2 + \delta_9 + \delta_9\delta_{x_1} + \delta_9\delta_{x_1}^2 + \delta_9\delta_7 + \delta_9\delta_7\delta_{x_1} + \delta_9\delta_7\delta_{x_1}^2) + \\
 y_1^2(\delta_{y_1}+ \delta_{y_1}^2 + \delta_8 + \delta_8\delta_{y_1} + \delta_8\delta_{y_1}^2 + \delta_9 + \delta_9\delta_{y_1} + \delta_9\delta_{y_1}^2 + \delta_9\delta_8 + \delta_9\delta_8\delta_{y_1} + \delta_9\delta_8\delta_{y_1}^2) \leq \\
 
@@ -574,29 +574,29 @@ $$
 And state that
 
 $$
-\^l_1 = l(1 + \delta_{l_1}) \text{ for some } 
+\hat{l}_1 = l(1 + \delta_{l_1}) \text{ for some } 
 \delta_{l_1} \in \mathbb{R} \text{ such that }
 |\delta_{l_1}| \leq \epsilon_{l_1}
 $$
 
 Hold on tight - we are close to the finale
 
-## $\^s_1$
+## $\hat{s}_1$
 
 $$
-\^s_1 = fl(m \cdot isq(\^l_1))
+\hat{s}_1 = fl(m \cdot isq(\hat{l}_1))
 $$
 
 By lemma 1, we can write
 
 $$
-\^s_1 = (m \cdot isq(\^l_1))(1 + \delta_{10})
+\hat{s}_1 = (m \cdot isq(\hat{l}_1))(1 + \delta_{10})
 $$
 
-Similarly to the proof of $\^s$, we use lemma 3 to write
+Similarly to the proof of $\hat{s}$, we use lemma 3 to write
 
 $$
-isq(\^l_1) = \dfrac{1}{\sqrt{l_1}}(1 + \delta_{isql_1}) \text{ for some }
+isq(\hat{l}_1) = \dfrac{1}{\sqrt{l_1}}(1 + \delta_{isql_1}) \text{ for some }
 \delta_{isql_1} \in \mathbb{R} \text{ such that } 
 |\delta_{isql_1}| \leq \epsilon_{isql_1}
 $$
@@ -613,7 +613,7 @@ $$
 So
 
 $$
-\^s_1 = \dfrac{m}{\sqrt{l_1}}(1 + \delta_{10})(1 + \delta_{isql_1}) = s_1(1 + \delta_{10} + \delta_{isql_1} + \delta_{10}\delta_{isql_1})
+\hat{s}_1 = \dfrac{m}{\sqrt{l_1}}(1 + \delta_{10})(1 + \delta_{isql_1}) = s_1(1 + \delta_{10} + \delta_{isql_1} + \delta_{10}\delta_{isql_1})
 $$
 
 Finally, we define $\delta_{s_1} = \delta_{10} + \delta_{isql_1} + \delta_{10}\delta_{isql_1}$, and show by triangle inequality that
