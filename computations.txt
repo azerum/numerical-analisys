@@ -1,0 +1,92 @@
+We need to estimate the error e_isq, which is the
+maximum relative error of the fast inverse square root
+algorithm.
+
+This error was already found experimatally and posted on Wikipedia:
+for 3-iteration version we have the following errors (graph image) - 
+https://en.wikipedia.org/wiki/Fast_inverse_square_root#/media/File:3rd-iter.png
+
+We can see from the graph that e_isq = 3.5 * 10^(-11)
+
+Since JS uses double precision floating-point numbers
+with rouding to nearest, e_m = 2^(-53)
+
+1.
+
+e_l = 2e_m + e_m^2
+https://www.wolframalpha.com/input?i=2k+%2B+k%5E2+where+k+%3D+2%5E%28-53%29
+
+e_l = 18014398509481985/81129638414606681695789005144064
+
+2.
+
+e_isql = max(
+    |(1 - e_isq)/sqrt(1 + e_l) - 1|,
+    |(1 + e_isq)/sqrt(1 - e_l) - 1|
+)
+
+https://www.wolframalpha.com/input?i=max%28%7C%281+-+k%29%2Fsqrt%281+%2B+m%29+-+1%7C%2C++%7C%281+%2B+k%29%2Fsqrt%281+-+m%29+-+1%7C%29%29+where+k+%3D+3.5*10%5E%28-11%29%2C+m+%3D+18014398509481985%2F81129638414606681695789005144064
+
+e_isql = 3.50002×10^-11
+
+3. 
+
+e_s = e_m + e_isql + e_m * e_isql
+
+https://www.wolframalpha.com/input?i=k+%2B+m+%2B+k*m+where+k+%3D+2%5E%28-53%29%2C+m+%3D+3.50002%C3%9710%5E-11
+
+e_s = 3.50003×10^-11
+
+4.
+
+e_x1 = e_y1 = e_m + e_s + e_m * e_s
+
+https://www.wolframalpha.com/input?i=k+%2B+m+%2B+k*m+where+k+%3D+2%5E%28-53%29%2C+m+%3D+3.50003%C3%9710%5E-11
+
+e_x1 = e_y1 = 3.50004×10^-11
+
+5.
+
+Let 
+k = e_m
+m = e_x1 = e_y1 
+
+(as WolframAlpha does not work well with names 
+e_m and similar)
+
+Then
+e_l1 = m + m^2 + k + k*m + k*m^2 + k + k*m + k*m^2 + 
+k^2 + k^2*m + k^2*m^2 + m + m^2 + k + k*m + k*m^2 + 
+k + k*m + k*m^2 + k*m^2 + k^2 + k^2*m + k^2*m^2
+
+https://www.wolframalpha.com/input?i=m+%2B+m%5E2+%2B+k+%2B+k*m+%2B+k*m%5E2+%2B+k+%2B+k*m+%2B+k*m%5E2+%2B++k%5E2+%2B+k%5E2*m+%2B+k%5E2*m%5E2+%2B+m+%2B+m%5E2+%2B+k+%2B+k*m+%2B+k*m%5E2+%2B++k+%2B+k*m+%2B+k*m%5E2+%2B+k*m%5E2+%2B+k%5E2+%2B+k%5E2*m+%2B+k%5E2*m%5E2+where+k+%3D+2%5E%28-53%29%2C+m+%3D+3.50004%C3%9710%5E-11
+
+e_l1 = 7.00012×10^-11
+
+6.
+
+e_isql1 = max(
+    |(1 - e_isq)/sqrt(1 + e_l1) - 1|,
+    |(1 + e_isq)/sqrt(1 - e_l1) - 1|
+)
+
+https://www.wolframalpha.com/input?i=max%28%7C%281+-+k%29%2Fsqrt%281+%2B+m%29+-+1%7C%2C++%7C%281+%2B+k%29%2Fsqrt%281+-+m%29+-+1%7C%29%29+where+k+%3D+3.5*10%5E%28-11%29%2C+m+%3D+7.00012%C3%9710%5E-11
+
+e_isql1 = 7.00007×10^-11
+
+7. 
+
+e_s1 = e_m + e_isql1 + e_m * e_isql1
+
+https://www.wolframalpha.com/input?i=k+%2B+m+%2B+k*m+where+k+%3D+2%5E%28-53%29%2C+m+%3D+7.00007%C3%9710%5E-11
+
+e_s1 = 7.00008×10^-11
+
+7.
+
+Since expect s1 to be equal to 1, and the maximum relative
+error is e_s1, value of approximation of s1 will be between 
+1 - e_s1 and 1 + e_s1
+
+1 - e_s1 = 0.9999999999299992
+1 + e_s1 = 1.0000000000700008

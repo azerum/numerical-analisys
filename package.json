@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"@types/node": "^18.11.7",
+		"@types/ws": "^8.5.3",
+		"sirdez": "link:/Users/user/src/pull/sirdez",
+		"ws": "^8.10.0"
+	}
+}
