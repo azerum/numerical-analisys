@@ -1,6 +1,9 @@
 # How to read this proof
 
-You might want to first examing the [problem statement](#problem-statement), to understand what are we even doing.
+GitHub renders markdown incorrectly, so I advice you to use VSCode or 
+other tool to view the render of the formulas.
+
+You might want to first examine the [problem statement](#problem-statement), to understand what are we even doing.
 
 Next it will be useful to read [definitions](#definitions).
 
