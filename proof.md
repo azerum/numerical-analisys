@@ -562,8 +562,11 @@ x_1^2(\delta_{x_1}+ \delta_{x_1}^2 + \delta_7 + \delta_7\delta_{x_1} + \\
 y_1^2(\delta_{y_1}+ \delta_{y_1}^2 + \delta_8 + \delta_8\delta_{y_1} + \delta_8\delta_{y_1}^2 + \\
 \delta_9 + \delta_9\delta_{y_1} + \delta_9\delta_{y_1}^2 + \delta_9\delta_8 + \\
 \delta_9\delta_8\delta_{y_1} + \delta_9\delta_8\delta_{y_1}^2) \leq \\
+$$
 
-\text{(by triangle inequality)} \\
+(by triangle inequality)
+
+$$
 x_1^2(\epsilon_{x_1} + \epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \\
 \epsilon_m\epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \epsilon_m\epsilon_{x_1}^2 + \\
 \epsilon_m^2 + \epsilon_m^2\epsilon_{x_1} + \epsilon_m^2\epsilon_{x_1}^2) + \\
