@@ -1,8 +1,5 @@
 # How to read this proof
 
-GitHub renders markdown incorrectly, so I advice you to use VSCode or 
-other tool to view the render of the formulas.
-
 You might want to first examine the [problem statement](#problem-statement), to understand what are we even doing.
 
 Next it will be useful to read [definitions](#definitions).
@@ -71,21 +68,21 @@ y_1 = fl(\hat{s} \cdot y)
 $$
 
 $$
-\hat{l_1} = fl(fl(\hat{x_1} \cdot \hat{x_1}) + fl(\hat{y_1} \cdot \hat{y_1}))
+\hat{l}_1 = fl(fl(\hat{x}_1 \cdot \hat{x}_1) + fl(\hat{y}_1 \cdot \hat{y}_1))
 $$
 
 $$
-\hat{s_1} = fl(m \cdot isq(\hat{l_1}))
+\hat{s}_1 = fl(m \cdot isq(\hat{l}_1))
 $$
 
-Find the maximum relative error in computation of $\hat{s_1}$.
+Find the maximum relative error in computation of $\hat{s}_1$.
 
 To state the problem more formally, find such $\epsilon_{s_1} \in \mathbb{R}$,
 $\epsilon_{s_1} > 0$, that
 
 $$
 \forall x, y \mathbb{F}, m \in \{ n \in  \mathbb{F} \mid n > 0 \} : \\
-|\dfrac{\hat{s_1} - s_1}{s_1}| \leq \epsilon_{s_1}
+|\dfrac{\hat{s}_1 - s_1}{s_1}| \leq \epsilon_{s_1}
 $$
 
 # Lemmas
@@ -492,10 +489,10 @@ $$
 
 So we can define $\epsilon_s = \epsilon_m + \epsilon_{isql} + \epsilon_m\epsilon_{isql}$ and write $|\delta_s| \leq \epsilon_s$
 
-## $\hat{x_1}, \hat{y_1}$
+## $\hat{x}_1, \hat{y}_1$
 
 $$
-\hat{x_1} = (x \cdot \hat{s})(1 + \delta_5) = (x \cdot s)(1 + \delta_5)(1 + \delta_s) = x_1(1 + \delta_5 + \delta_s + \delta_5\delta_s)
+\hat{x}_1 = (x \cdot \hat{s})(1 + \delta_5) = (x \cdot s)(1 + \delta_5)(1 + \delta_s) = x_1(1 + \delta_5 + \delta_s + \delta_5\delta_s)
 $$
 
 By triangle inequality,
@@ -509,10 +506,10 @@ We define $\delta_{x_1} = \delta_5 + \delta_s + \delta_5\delta_s$,
 $\epsilon_{x_1} = \epsilon_m + \epsilon_s + \epsilon_m\epsilon_s$ and
 write $|\delta_{x_1}| \leq \epsilon_{x_1}$
 
-Similarly for $\hat{y_1}$ we write
+Similarly for $\hat{y}_1$ we write
 
 $$
-\hat{y_1} = y(1 + \delta_{y_1}) \\
+\hat{y}_1 = y(1 + \delta_{y_1}) \\
 \delta_{y_1} = \delta_6 + \delta_s + \delta_6\delta_s \\
 \epsilon_{y_1} = \epsilon_m + \epsilon_s + \epsilon_m\epsilon_s \\
 |\delta_{y_1}| \leq \epsilon_{y_1}
@@ -521,15 +518,15 @@ $$
 ## $\hat{l}_1$
 
 $$
-\hat{l}_1 = fl(fl(\hat{x_1} \cdot \hat{x_1}) + fl(\hat{y_1} \cdot \hat{y_1})) = 
+\hat{l}_1 = fl(fl(\hat{x}_1 \cdot \hat{x}_1) + fl(\hat{y}_1 \cdot \hat{y}_1)) = 
 $$
 
 $$
-[(\hat{x_1} \cdot \hat{x_1})(1 + \delta_7) + (\hat{y_1} \cdot \hat{y_1})(1 + \delta_8)](1 + \delta_9).
+[(\hat{x}_1 \cdot \hat{x}_1)(1 + \delta_7) + (\hat{y}_1 \cdot \hat{y}_1)(1 + \delta_8)](1 + \delta_9).
 $$
 
 $$
-(\hat{x_1} \cdot \hat{x_1})(1 + \delta_7)(1 + \delta_9) = 
+(\hat{x}_1 \cdot \hat{x}_1)(1 + \delta_7)(1 + \delta_9) = 
 (x_1 \cdot x_1)(1 + \delta_{x_1}^2)(1 + \delta_7)(1 + \delta_9) =
 $$
 
@@ -559,19 +556,32 @@ $$
 
 $$
 |\hat{l}_1 - l| = \\
-x_1^2(\delta_{x_1}+ \delta_{x_1}^2 + \delta_7 + \delta_7\delta_{x_1} + \delta_7\delta_{x_1}^2 + \delta_9 + \delta_9\delta_{x_1} + \delta_9\delta_{x_1}^2 + \delta_9\delta_7 + \delta_9\delta_7\delta_{x_1} + \delta_9\delta_7\delta_{x_1}^2) + \\
-y_1^2(\delta_{y_1}+ \delta_{y_1}^2 + \delta_8 + \delta_8\delta_{y_1} + \delta_8\delta_{y_1}^2 + \delta_9 + \delta_9\delta_{y_1} + \delta_9\delta_{y_1}^2 + \delta_9\delta_8 + \delta_9\delta_8\delta_{y_1} + \delta_9\delta_8\delta_{y_1}^2) \leq \\
+x_1^2(\delta_{x_1}+ \delta_{x_1}^2 + \delta_7 + \delta_7\delta_{x_1} + \\
+\delta_7\delta_{x_1}^2 + \delta_9 + \delta_9\delta_{x_1} + \delta_9\delta_{x_1}^2 + \\
+\delta_9\delta_7 + \delta_9\delta_7\delta_{x_1} + \delta_9\delta_7\delta_{x_1}^2) + \\
+y_1^2(\delta_{y_1}+ \delta_{y_1}^2 + \delta_8 + \delta_8\delta_{y_1} + \delta_8\delta_{y_1}^2 + \\
+\delta_9 + \delta_9\delta_{y_1} + \delta_9\delta_{y_1}^2 + \delta_9\delta_8 + \\
+\delta_9\delta_8\delta_{y_1} + \delta_9\delta_8\delta_{y_1}^2) \leq \\
 
 \text{(by triangle inequality)} \\
-x_1^2(\epsilon_{x_1} + \epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \epsilon_m\epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \epsilon_m\epsilon_{x_1}^2 + \epsilon_m^2 + \epsilon_m^2\epsilon_{x_1} + \epsilon_m^2\epsilon_{x_1}^2) + \\
-y_1^2(\epsilon_{y_1} + \epsilon_{y_1}^2 + \epsilon_m + \epsilon_m\epsilon_{y_1} + \epsilon_m\epsilon_{y_1}^2 + \epsilon_m + \epsilon_m\epsilon_{y_1} + \epsilon_m\epsilon_{y_1}^2 + \epsilon_m^2 + \epsilon_m^2\epsilon_{y_1} + \epsilon_m^2\epsilon_{y_1}^2)
+x_1^2(\epsilon_{x_1} + \epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \\
+\epsilon_m\epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \epsilon_m\epsilon_{x_1}^2 + \\
+\epsilon_m^2 + \epsilon_m^2\epsilon_{x_1} + \epsilon_m^2\epsilon_{x_1}^2) + \\
+y_1^2(\epsilon_{y_1} + \epsilon_{y_1}^2 + \epsilon_m + \epsilon_m\epsilon_{y_1} + \\
+\epsilon_m\epsilon_{y_1}^2 + \epsilon_m + \epsilon_m\epsilon_{y_1} + \\
+\epsilon_m\epsilon_{y_1}^2 + \epsilon_m^2 + \epsilon_m^2\epsilon_{y_1} + \\
+\epsilon_m^2\epsilon_{y_1}^2)
 $$
 
 So we can define 
 
 $$
-\epsilon_{l_1} = \epsilon_{x_1} + \epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \epsilon_m\epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \epsilon_m\epsilon_{x_1}^2 + \epsilon_m^2 + \epsilon_m^2\epsilon_{x_1} + \epsilon_m^2\epsilon_{x_1}^2 + \\
-\epsilon_{y_1} + \epsilon_{y_1}^2 + \epsilon_m + \epsilon_m\epsilon_{y_1} + \epsilon_m\epsilon_{y_1}^2 + \epsilon_m + \epsilon_m\epsilon_{y_1} + \epsilon_m\epsilon_{y_1}^2 + \epsilon_m^2 + \epsilon_m^2\epsilon_{y_1} + \epsilon_m^2\epsilon_{y_1}^2
+\epsilon_{l_1} = \epsilon_{x_1} + \epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \\
+\epsilon_m\epsilon_{x_1}^2 + \epsilon_m + \epsilon_m\epsilon_{x_1} + \epsilon_m\epsilon_{x_1}^2 + \\
+\epsilon_m^2 + \epsilon_m^2\epsilon_{x_1} + \epsilon_m^2\epsilon_{x_1}^2 + \epsilon_{y_1} + \\
+\epsilon_{y_1}^2 + \epsilon_m + \epsilon_m\epsilon_{y_1} + \epsilon_m\epsilon_{y_1}^2 + \epsilon_m + \\
+\epsilon_m\epsilon_{y_1} + \epsilon_m\epsilon_{y_1}^2 + \epsilon_m^2 + \epsilon_m^2\epsilon_{y_1} + \\
+\epsilon_m^2\epsilon_{y_1}^2
 $$
 
 And state that
@@ -619,7 +629,8 @@ $$
 \hat{s}_1 = \dfrac{m}{\sqrt{l_1}}(1 + \delta_{10})(1 + \delta_{isql_1}) = s_1(1 + \delta_{10} + \delta_{isql_1} + \delta_{10}\delta_{isql_1})
 $$
 
-Finally, we define $\delta_{s_1} = \delta_{10} + \delta_{isql_1} + \delta_{10}\delta_{isql_1}$, and show by triangle inequality that
+Finally, we define $\delta_{s_1} = \delta_{10} + \delta_{isql_1} + \delta_{10}\delta_{isql_1}$, 
+and show by triangle inequality that
 
 $$
 |\delta_{s_1}| = 
