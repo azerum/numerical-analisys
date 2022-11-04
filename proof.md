@@ -4,7 +4,7 @@ You might want to first examine the [problem statement](#problem-statement), to 
 
 Next it will be useful to read [definitions](#definitions).
 
-Then you can read the [actual proof](#solution). Every time you encounter some lemma, you find it in [lemmas section](#lemmas)
+Then you can read the [actual proof](#solution). Every time you encounter some lemma, you can find it in and read about it in [lemmas section](#lemmas)
 
 # Definitions
 
