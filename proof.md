@@ -2,28 +2,38 @@
 
 You might want to first examine the [problem statement](#problem-statement), to understand what are we even doing.
 
-Next it will be useful to read [definitions](#definitions).
+Then you can read the [actual proof](#solution).
 
-Then you can read the [actual proof](#solution). Every time you encounter some lemma, you can find it in and read about it in [lemmas section](#lemmas)
+Every time you encounter some unknown symbol, such as $\mathbb{F}$ or $isq(x)$, you can find 
+it's definition in [definitions section](#definitions).
+
+Every time you encounter some lemma, you can find it in and read about it in [lemmas section](#lemmas).
 
 # Definitions
 
-I use the mathematical definition of floating-point numbers from
-[here](https://www.math.usm.edu/lambers/mat460/fall09/lecture4.pdf) (page 4)
+## $\mathbb{F}$
 
-I define $\mathbb{F}$ to be a finite set 
-of all floating-point numbers and $fl(x)$ to 
-be a function $\mathbb{R} \rightarrow \mathbb{F}$ 
-that maps a real number to a floating-point number closest to it.
+I define $\mathbb{F}$ as the finite set of all floating-point numbers. 
+I use mathematical definition of floating-point numbers from [here](https://www.math.usm.edu/lambers/mat460/fall09/lecture4.pdf) (page 4)
 
-You can see that if $x \in \mathbb{F}$, then $fl(x) = x$.
+## $fl(x)$
 
-I use the definition of machine espilon from [here](https://www.math.usm.edu/lambers/mat460/fall09/lecture5.pdf) (page 1). Note that in the PDF
-it is called 'machine precision'. I will referer to it as machine epsilon or
-simply $\epsilon_m$.
+$fl(x)$ is a function $fl : \mathbb{R} \rightarrow \mathbb{R}$, that maps real numbers to the floating-point numbers closest to them.
+If $x \in \mathbb{F}$, then $fl(x) = x$.
 
-The computations we study here use [fast inverse square root](https://en.wikipedia.org/wiki/Fast_inverse_square_root) algorithm. You can look at
-implementation of it in TypeScript in the file `src/inverse-sqrt.ts`.
+## $\epsilon_m$
+
+JavaScript uses floating-point numbers with rounding to nearest, so out floating-point system will also use such rouding. 
+With rounding to nearest, the maximum difference between $x$ and $fl(x)$ is $\epsilon_m$ percents. In other words,
+$\epsilon_m$ is the maximum relative error between $fl(x)$ and $x$.
+
+More formal definition of machine epsilon is given [here](https://www.math.usm.edu/lambers/mat460/fall09/lecture5.pdf) (page 1).
+Note that in the PDF it is called 'machine precision. I will referer to it as machine epsilon or simply $\epsilon_m$.
+
+## $isq(x)$
+
+The computations we study here use [fast inverse square root algorithm](https://en.wikipedia.org/wiki/Fast_inverse_square_root). 
+You can examine its implementation in TypeScript in file `src/inverse-sqrt.ts`
 
 In proofs we refer to it as function $isq(x)$, $\mathbb{F} \rightarrow \mathbb{F}$
 
