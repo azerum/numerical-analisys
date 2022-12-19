@@ -659,4 +659,4 @@ We will use WolframAlpha for computations with high precision, so we won't
 have higher error while computing the error itself.. You can find computations
 in the file `computations.txt`
 
-Thank you for reading this long proof. Have a nice day, bye!
+That's it!
