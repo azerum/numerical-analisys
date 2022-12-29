@@ -30,6 +30,8 @@ $\epsilon_m$ is the maximum relative error between $fl(x)$ and $x$.
 More formal definition of machine epsilon is given [here](https://www.math.usm.edu/lambers/mat460/fall09/lecture5.pdf) (page 1).
 Note that in the PDF it is called 'machine precision. I will referer to it as machine epsilon or simply $\epsilon_m$.
 
+You can read the proof of the value of the epsilon [here](https://math.stackexchange.com/questions/3861976/machine-epsilon-value-for-ieee-double-precision-standard-alternative-proof-using)
+
 ## $isq(x)$
 
 The computations we study here use [fast inverse square root algorithm](https://en.wikipedia.org/wiki/Fast_inverse_square_root). 
